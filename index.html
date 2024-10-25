@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <script>
+        function increaseCount() {
+            fetch('/increment', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('count').innerText = data;
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Click Counter</h1>
+    <p>Click the button to increase the count.</p>
+    <button onclick="increaseCount()">Click me!</button>
+    <p>Count: <span id="count">0</span></p>
+</body>
+</html>
